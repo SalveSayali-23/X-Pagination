@@ -4,6 +4,7 @@ import "./App.css";
 const App = () => {
   const [employees, setEmployees] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
 
   const fetchEmployeeData = async () => {
     try {
@@ -11,10 +12,11 @@ const App = () => {
         "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json"
       );
       const data = await res.json();
-      console.log(data);
+      // console.log(data);
       setEmployees(data);
+      setTotalPages(Math.ceil(employees.length / 10));
     } catch (error) {
-      console.error("failed to fetch the data ", error);
+      console.error("failed to fetch data", error);
     }
   };
 
@@ -23,8 +25,8 @@ const App = () => {
   }, []);
 
   // calculate total no. of pages
-  const totalPages = Math.ceil(employees.length / 10);
-  console.log(totalPages);
+  // const totalPages = Math.ceil(employees.length / 10);
+  // console.log(totalPages);
 
   const startIdx = (currentPage - 1) * 10;
   const endIdx = startIdx + 10;
@@ -65,12 +67,22 @@ const App = () => {
           ))}
         </tbody>
       </table>
-      <div  className="button-container"> 
-        <button onClick={handlePrevPage} disabled={currentPage === 1} className="button">
+      <div className="button-container">
+        <button
+          onClick={handlePrevPage}
+          disabled={currentPage === 1}
+          className="button"
+        >
           Previous
         </button>
-        <button><span>{currentPage}</span></button>
-        <button onClick={handleNextPage} disabled={currentPage === totalPages} className="button">
+        <button>
+          <span>{currentPage}</span>
+        </button>
+        <button
+          onClick={handleNextPage}
+          disabled={currentPage === totalPages}
+          className="button"
+        >
           Next
         </button>
       </div>
