@@ -71,7 +71,7 @@ const App = () => {
       <div className="button-container">
         <button
           onClick={handlePrevPage}
-          disabled={currentPage === 1}
+          //disabled={currentPage === 1}
           className="button"
         >
           Previous
