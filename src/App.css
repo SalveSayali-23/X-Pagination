@@ -1,0 +1,52 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 50px
+}
+/* pagination.css */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: green;
+  color: #cccccc;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+.button-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+.button {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-right: 10px; 
+}
+.button:last-child {
+  margin-left: 10px; /* Remove margin from the last button */
+}
+
+button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+}
