@@ -17,6 +17,7 @@ const App = () => {
       setTotalPages(Math.ceil(employees.length / 10));
     } catch (error) {
       console.error("failed to fetch data", error);
+      alert('failed to fetch data');
     }
   };
 
